@@ -30,6 +30,6 @@ button{
     text-align: center;
     
 }
-#err{
+.err{
     margin-bottom: 10px;
 }
