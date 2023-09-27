@@ -6,7 +6,7 @@ let endEl = document.getElementById('end');
 let btnEl = document.getElementById('btn');
 let btnNextEl = document.getElementById('btnNext');
 let contentEl = document.getElementById('content');
-let errMsg = document.getElementById('err')
+let errMsg = document.getElementById('errm')
 let startNum
 let endNum;
 btnEl.addEventListener('click', () => {
