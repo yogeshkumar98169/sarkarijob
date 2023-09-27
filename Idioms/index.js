@@ -11,18 +11,22 @@ let startNum
 let endNum;
 btnEl.addEventListener('click', () => {
     endNum = Number(endEl.value);
-    startNum = startEl.value;
-    errMsg.textContent = (endNum + 1) - startNum;
+    startNum = startEl.value - 1;
+    errMsg.textContent = (endNum) - startNum;
     btnNextEl.removeAttribute("disabled", "")
+    console.log(startNum, endNum)
+    contentEl.innerHTML = arr1[startNum];
+    startNum++;
+    errMsg.innerHTML = (endNum) - (startNum);
 })
 btnNextEl.addEventListener('click', () => {
-    if (startNum > Number(endNum)) {
+    if (startNum >= Number(endNum)) {
         btnNextEl.setAttribute("disabled", "")
     }
     else {
         console.log(startNum, endNum)
         contentEl.innerHTML = arr1[startNum];
         startNum++;
-        errMsg.innerHTML = (endNum + 1) - (startNum);
+        errMsg.innerHTML = (endNum) - (startNum);
     }
 })
