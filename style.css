@@ -14,6 +14,8 @@ body{
     background-color: rgb(15, 15, 137);
     padding: 15px;
     border-radius: 40px;
+    margin: 10px;
+    text-align: center;
 }
 a{
     color: white;
