@@ -21,6 +21,15 @@ button{
     background: rgb(11, 11, 82);
     color: rgb(240, 231, 231);
 }
+ #btnNext,#btnPrevious{
+    padding: 10px;
+        border: none;
+        border-radius: 30px;
+        width: 100px;
+        background: rgb(11, 11, 82);
+        color: rgb(240, 231, 231);
+}
+
 #content{
     margin-top: 10px;
     border-radius: 30px;
