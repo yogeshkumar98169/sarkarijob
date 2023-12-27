@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.heading{
+    text-align: center;
+}
+main{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.main{
+    width: 280px;
+}
+.selection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#dayNumber {
+    width: 100%;
+    font-size: large;
+    text-align: center;
+}
+button{
+    padding: 05px;
+    border-radius: 5px;
+    background-color: rgb(63, 63, 225);
+    color: white;
+    border:none;
+}
+#count{
+    width: 100%;
+}
+#start,#end{
+    width: 48%;
+    font-size: 1.2rem;
+}
+#startGame{
+    width: 100%;
+}
+#next,#prev{
+    width: 48%;
+}
+input{
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+.additionalDetails{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+#reset {
+    width: 100%;
+}
+.content{
+    font-size: 1.7rem;
+    text-align: center;
+}
