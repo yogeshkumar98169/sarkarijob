@@ -70,4 +70,8 @@ div.content{
     text-align: center;
     border: 2px solid black;
     border-radius: 5px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
