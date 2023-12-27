@@ -65,7 +65,9 @@ input{
 #reset {
     width: 100%;
 }
-.content{
+div.content{
     font-size: 1.7rem;
     text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
 }
