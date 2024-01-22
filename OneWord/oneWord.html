@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Word</title>
+    <link rel="stylesheet" href="../common/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="heading">One Word</h1>
+    </header>
+    <section>
+      <p>1. Neetu Singh Vol-1</p>
+    </section>
+    <main>
+      <div class="main">
+        <div class="additionalDetails">
+          <div class="selection">
+            <input type="number" min="1" max="15" id="dayNumber" />
+          </div>
+          <div class="total">
+            <button id="count">Count</button>
+          </div>
+          <div class="total">Total : <span id="totalCount"></span></div>
+          <div class="startEnd">
+            <input type="number" id="start" />
+            <input type="number" id="end" />
+          </div>
+          <div class="startGame">
+            <button id="startGame">Start</button>
+          </div>
+          <div class="current">Current: <span id="currentNumber"></span></div>
+          <div class="remaining">
+            Remaining : <span id="remainingNumber"></span>
+          </div>
+          <div class="prevNext">
+            <button id="prev">Prev</button>
+            <button id="next">Next</button>
+          </div>
+          <div class="reset">
+            <button id="reset">Reset</button>
+          </div>
+          <div class="content">
+            <span id="content">Content Here:</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="oneWord.js"></script>
+  </body>
+</html>
