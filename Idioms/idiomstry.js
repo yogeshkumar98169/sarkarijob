@@ -16,14 +16,11 @@ const idiomsPhrases = {
     14: [`An Iron will `, ` To show a clean pair of heels `, ` To blow one’s own trumpet `, ` Sell somebody down the river `, ` To roll up one’s sleeve `, ` Bring down the house `, ` Meet you half way `, ` Nittygritty `, ` A good Samaritan `, ` Back seat driver `, ` To make a mountain of molehill `, ` Rub up the wrong way `, ` Pin money `, ` Sow wild oats `, ` Struck work `, ` At loggerheads `, ` To draw a blank `, ` Rat race `, ` A bottleneck `, ` Hobson’s choice `, ` By hook or by crook `, ` A taste of one’s medicine `, ` To beat a retreat `, ` In the dark `, ` Actions speak louder than words `, ` Can’t judge a book by its cover  `, ` Let bygones be bygones `, ` Turn an honest penny `, ` Out of the Woods `, ` Set at liberty `, ` Dare devil `, ` Go broke `, ` Put one’s foot down `, ` Walking on air `, ` Let the chips fall where they may `, ` Off the hook `, ` No ifs and buts `, ` Make a fun of `, ` Carve out a niche `, ` All thumbs `, ` Cut down `, ` Cut into `, ` Cut out for `, ` Cut in on `, ` Cut somebody down `, ` Cut across `, ` Cut up `, ` Fall out `, ` Fall Through `, ` Fall apart `, ` Fall in love `, ` Fall back on `, ` Fall off `, ` Fall for `, ` Fall in with `, ` Fall back `, ` Fall in`],
     15: [` Out of hand `, ` Take something with pinch/ grain of salt `, ` By dint of `, ` Clean hands `, ` By a whisker `, ` To strike one’s colours `, ` Grin from ear to ear `, ` Cry down `, ` Drop names `, ` Rise to the occasion`, ` Have a finger in every pie `, ` Bring to one’s knees `, ` Teething problems `, ` Pie in the sky `, ` Fly into a rage `, ` The ball is in your court `, ` Got on well `, ` In a real fix `, ` Get the upper hand `, ` Moot point `, ` At any cost `, ` Wash one’s hand of `, ` Fair’s fair `, ` In an instant `, ` Take the heat `, ` Paddle of own canoe `, ` Touch all bases `, ` Set the thames on fire `, ` Feeding frenzy `, ` Steal / stole the show `, ` Keep a low profile `, ` Dark horse `, ` Lead up the garden path `, ` On cloud nine/ cloud nine `, ` Dig the grave `, ` Out of sorts `, ` Put the saddle on the right horse `, ` Come to a standstill `, ` With bated breath `, ` Crack of dawn `, ` Bear away `, ` Bear up with `, ` Bear out `, ` Bear down `, ` Bear with `, ` Bear upon `, ` Bear up `, ` Step up `, ` Step out `, ` Stepdown `, ` Step aside `, ` Step in`],
 }
-const totalIdiomsPhrases = () => {
+for (i = 0; i < 15; i++) {
     let sum = 0
-    for (i = 0; i < 15; i++) {
-        sum = sum + idiomsPhrases[i + 1].length
-    }
+    sum = sum + idiomsPhrases[i + 1].length
     console.log(sum)
 }
-
 let dayNumber = document.getElementById("dayNumber")
 let count = document.getElementById("count")
 let totalCount = document.getElementById('totalCount')
@@ -36,11 +33,13 @@ let prev = document.getElementById('prev')
 let next = document.getElementById('next')
 let reset = document.getElementById('reset')
 let content = document.getElementById('content')
+let n
+let day
 let length
+let rNumber
+let cNumber
 let startVal
 let endVal
-let n
-
 const defaultProperties = () => {
     start.value = 1
     end.value = length
@@ -49,67 +48,69 @@ const defaultProperties = () => {
     end.setAttribute("max", length)
     end.setAttribute("min", 1)
 }
-const countIdiomsPhrases = () => {
-    day = dayNumber.value
+//!Events and logics
+count.addEventListener('click', () => {
+    day = dayNumber.value;
     length = idiomsPhrases[day].length
     totalCount.innerText = length
     defaultProperties()
-}
-const startGameF = () => {
-    startVal = start.value
-    endVal = end.value
-    n = startVal - 1
-    console.log(startVal)
-    console.log(endVal)
-    currentNumber.textContent = startVal
-    remainingNumber.textContent = endVal - startVal
-    content.textContent = idiomsPhrases[day][n]
-}
-const resetF = () => {
-    location.reload()
+})
 
-}
-const prevF = () => {
-    --n
-    --startVal
-    currentNumber.innerText = startVal
-    remainingNumber.innerText = endVal - startVal
-    content.innerText = idiomsPhrases[day][n]
-    let x = Number.parseInt(currentNumber.textContent)
-    if (x == start.value) {
-        prev.setAttribute('disabled', '')
-    }
-    if (x != end.vlaue) {
+startGame.addEventListener('click', () => {
+    rNumber = Number.parseInt(remainingNumber.textContent);
+    if (start.value < end.value) {
         next.removeAttribute('disabled')
     }
-}
-const nextF = () => {
-    ++n;
-    ++startVal
-    currentNumber.innerText = startVal
-    remainingNumber.innerText = endVal - startVal
-    content.innerText = idiomsPhrases[day][n]
-    let x = Number.parseInt(currentNumber.textContent)
-    if (x == end.value) {
-        next.setAttribute('disabled', '')
-    }
-    if (x != start.value) {
-        prev.removeAttribute('disabled')
-    }
-}
 
-count.addEventListener('click', () => {
-    countIdiomsPhrases()
-})
-startGame.addEventListener('click', () => {
-    startGameF();
-})
-reset.addEventListener('click', () => {
-    resetF()
-})
-prev.addEventListener('click', () => {
-    prevF();
+    if (start.value == 0 || end.value == 0) {
+        alert("Enter the values forst")
+    }
+    else {
+        startVal = start.value
+        endVal = end.value
+        n = startVal - 1
+        currentNumber.innerText = startVal;
+        remainingNumber.innerText = endVal - startVal
+        content.innerText = idiomsPhrases[day][n]
+        ++n
+        ++startVal
+    }
 })
 next.addEventListener('click', () => {
-    nextF();
+    rNumber = Number.parseInt(remainingNumber.textContent);
+    if (rNumber <= (end.value - start.value)) {
+        prev.removeAttribute('disabled')
+    }
+    if (rNumber <= 0) {
+        next.setAttribute('disabled', '')
+    }
+    else {
+        currentNumber.innerText = startVal
+        remainingNumber.innerText = endVal - startVal
+        content.innerText = idiomsPhrases[day][n]
+        ++n
+        ++startVal
+    }
+})
+prev.addEventListener('click', () => {
+    rNumber = Number.parseInt(remainingNumber.textContent)
+    cNumber = Number.parseInt(currentNumber.textContent)
+    if (rNumber >= 0) {
+        next.removeAttribute('disabled')
+    }
+    if (rNumber == end.value - start.value) {
+        prev.setAttribute('disabled', '')
+    }
+    else {
+        --startVal
+        --n
+        console.log(startVal, n)
+        content.innerText = idiomsPhrases[day][n]
+        remainingNumber.innerText = endVal - startVal
+        currentNumber.innerText = startVal
+    }
+
+})
+reset.addEventListener('click', () => {
+    location.reload()
 })
